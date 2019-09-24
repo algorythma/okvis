@@ -111,7 +111,7 @@ if(${USE_SYSTEM_BRISK})
   message(STATUS "Using system brisk. Found at ${BRISK_INCLUDE_DIRS}.")
 else()
   ExternalProject_Add(brisk_external
-    URL "https://www.doc.ic.ac.uk/~sleutene/software/brisk-2.0.3.zip"    
+    URL "https://github.com/algorythma/okvis/raw/master/brisk_2.0.2.tar.gz"    
     INSTALL_DIR ${CMAKE_BINARY_DIR}
     CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
     PREFIX ${CMAKE_CURRENT_BINARY_DIR}/brisk
@@ -146,11 +146,8 @@ if(${USE_SYSTEM_CERES})
   message(STATUS "Using system Ceres.")
 else()
   set(CERES_VERSION 1.9.0)
-  set(CERES_TAG 7c57de5080c9f5a4f067e2d20b5f33bad5b1ade6) #version 1.9. Newer ones would need adaptation with ceres::ParameterBlock
   ExternalProject_Add(ceres_external
-    GIT_REPOSITORY https://ceres-solver.googlesource.com/ceres-solver
-    GIT_TAG ${CERES_TAG}
-    UPDATE_COMMAND ""
+    URL "https://github.com/algorythma/okvis/raw/master/ceres_okvis.tar.gz"
     INSTALL_DIR ${CMAKE_BINARY_DIR}
     CMAKE_ARGS 
       -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> 
